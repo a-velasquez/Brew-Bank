@@ -14,24 +14,17 @@ ActiveRecord::Schema.define(version: 2020_07_27_171227) do
 
   create_table "beers", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "brewer"
     t.float "alcohol"
     t.text "description"
-    t.integer "brewer_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["brewer_id"], name: "index_beers_on_brewer_id"
+    t.index ["category_id"], name: "index_beers_on_category_id"
   end
 
-  create_table "brewers", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.string "type"
-    t.string "street"
-    t.string "city"
-    t.string "state"
-    t.string "zip_code"
-    t.string "country"
-    t.string "webpage_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -55,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_171227) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "beers", "brewers"
+  add_foreign_key "beers", "categories"
   add_foreign_key "reviews", "beers"
   add_foreign_key "reviews", "users"
 end
