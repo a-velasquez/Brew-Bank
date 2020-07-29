@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   resources :beers 
   resources :categories
+  resources :users, only: [:show]
 
 end
