@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   
-  root 'static#home'
+  root 'sessions#welcome'
   resources :users, only: [:new, :create, :show]
   resources :beers 
   resources :categories
