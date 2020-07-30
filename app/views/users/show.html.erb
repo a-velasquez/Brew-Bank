@@ -1,0 +1,7 @@
+<h1>Welcome To Your Brew Bank <%= @user.username%>!</h1>
+
+ <% @user.beers.each do |beer| %>
+  <div>
+    <p> Beer: <%= beer.name %> </p>
+  </div>
+  <% end %>
