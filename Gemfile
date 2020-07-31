@@ -22,6 +22,13 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#3rd Party Login - Omniauth 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+#Makes sure that environment variables re correctly loaded in the ENV hash 
+gem 'dotenv-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
