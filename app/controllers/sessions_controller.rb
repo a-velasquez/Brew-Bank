@@ -8,20 +8,25 @@ class SessionsController < ApplicationController
   end
 
   def create 
-
-      @user = User.find_by(username: params[:user][:username])
-    
-      if @user && @user.authenticate(password: params[:user][:password])
-        session[:user_id] = @user.id
-        redirect_to user_path(@user)
-      else
-        flash[:error] = "Sorry, login info was incorrect. Please try again."
-        redirect_to login_path
-      end
-
+    @user = User.find_by(username: params[:user][:username])
+    if @user && @user.authenticate(password: params[:user][:password])
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      flash[:error] = "Sorry, login info was incorrect. Please try again."
+      redirect_to login_path
+    end
   end
 
-  def omniauth
+  def omniauth  
+    user = User.create_from_omniauth(auth)
+    if user.valid?
+      session[:user_id] = user.id
+      redirect_to user_path(user)
+    else
+      flash[:message] = user.errors.full_messages.join(", ")
+      redirect_to login_path
+    end
   end
   
 
