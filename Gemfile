@@ -23,10 +23,13 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 
 #3rd Party Login - Omniauth 
+gem 'thin'
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-google-oauth2'
 
-#Makes sure that environment variables re correctly loaded in the ENV hash 
+
+#Makes sure that environment variables are correctly loaded in the ENV hash 
 gem 'dotenv-rails'
 
 # Use Active Storage variant
@@ -48,6 +51,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
