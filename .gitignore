@@ -18,7 +18,7 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore Facebook Key and Secret 
+# Ignore .env used for storing keys and app_id's  
 *.env
 
 # Ignore pidfiles, but keep the directory.
