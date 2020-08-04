@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def omniauth  #currently creates from google and facebook, need to implement twitter if possible 
+  def omniauth  #currently creates from google and facebook
     user = User.create_from_omniauth(auth)
     if user.valid?
       session[:user_id] = user.id
@@ -27,11 +27,8 @@ class SessionsController < ApplicationController
       flash[:message] = user.errors.full_messages.join(", ")
       redirect_to login_path
     end
-    binding.pry
-
   end
   
-
   def destroy 
     session.delete(:user_id) 
     redirect_to root_path
