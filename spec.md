@@ -12,7 +12,7 @@ Specs:
 - [x] Include signup
 - [x] Include login
 - [x] Include logout
-- [x] Include third party signup/login (how e.g. Devise/OmniAuth) #google and facebook currently working, will try to add twitter or github.
+- [x] Include third party signup/login (how e.g. Devise/OmniAuth) #google and facebook, and github now working.
 - [ ] Include nested resource show or index (URL e.g. users/2/recipes)
 - [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 - [ ] Include form display of validation errors (form URL e.g. /recipes/new)
