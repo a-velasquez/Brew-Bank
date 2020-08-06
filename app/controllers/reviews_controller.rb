@@ -6,7 +6,9 @@ class ReviewsController < ApplicationController
   end
 
   def create 
+    
     @review = current_user.reviews.build(review_params)
+    binding.pry
     if @review.save 
       flash[:message] = "Review Successfully Saved!"
       redirect_to review_path(@review)
@@ -18,6 +20,11 @@ class ReviewsController < ApplicationController
 
   def show 
     @review = Review.find_by_id(params[:id])
+    if authorized?(@review)
+      render :show
+    else 
+      redirect_to reviews_path(current_user)
+    end
   end
 
   def index 
