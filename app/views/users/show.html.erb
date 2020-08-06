@@ -1,4 +1,4 @@
-<h1>Welcome To Your Brew Bank <%= @user.username%>!</h1>
+<h1>Welcome To Your Brew Bank <%= @user.id %>!</h1>
 
 <%= link_to "Log Out", logout_path, method: :delete %>
 
@@ -8,5 +8,6 @@
     <p> Brewer: <%= beer.brewer %></p>
     <p> Alcohol: <%= beer.alcohol %>%</p>
     <p> Description: <%= beer.description %></p>
+    <p> <%= link_to "See Your Review for this beer.", review_path(beer.id) %> </p>
   </div>
 <% end %>
