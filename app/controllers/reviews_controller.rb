@@ -16,6 +16,12 @@ class ReviewsController < ApplicationController
     end 
   end 
 
+  def show 
+    @review = Review.find_by_id(params[:id])
+  end
+
+  def index 
+  end
 
   private 
 
