@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized?(review)
-    review.user === current_user
+    review.user == current_user
   end
 
 end
