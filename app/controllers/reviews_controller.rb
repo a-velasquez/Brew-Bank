@@ -19,12 +19,7 @@ class ReviewsController < ApplicationController
   end 
 
   def show 
-    @review = Review.find_by_id(params[:id])
-    if authorized?(@review)
-      render :show
-    else 
-      redirect_to reviews_path(current_user)
-    end
+    @review = Review.find_by(params[:id])
   end
 
   def index 
