@@ -1,7 +1,7 @@
-<h1> <%= @review.user.id %>'s review for <%= @review.beer.brewer %>'s <%= @review.beer.name %> </h1><br>
+<h1> <%= @review.user.username %>'s review for <%= @review.beer.brewer %>'s <%= @review.beer.name %> </h1><br>
 
-<%= @review.title %><br>
-<%= @review.rating %> Stars<br>
-<%= @review.content %>
+Title: <%= @review.title %><br>
+You Rated: it <%= @review.rating %> Stars<br>
+Content: <%= @review.content %>
 
 
