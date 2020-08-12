@@ -1,12 +1,6 @@
 <h1> <%= @beer.name %></h1>
 Category: <%= @beer.category.name %><br>
-Alcohol: <%= @beer.alcohol%>%<br>
+Alcohol: <%= @beer.alcohol %>%<br>
 <%= @beer.description %><br>
 
-<h2><%= @beer.name %> Reviews </h2>
-<% @beer.reviews.each do |review| %>
-<%= link_to review.title, review_path(review) %><br>
-by <%= review.user.username %> - <%= review.user.id %>
-<% end %>
-<br><br>
 <%= link_to "Review This Beer", new_beer_review_path(@beer.id) %>
