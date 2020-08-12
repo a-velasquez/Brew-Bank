@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
 
   def omniauth  #currently creates from google and facebook
     user = User.create_from_omniauth(auth)
+    binding.pry
     if user.valid?
       session[:user_id] = user.id
       redirect_to user_path(user)
