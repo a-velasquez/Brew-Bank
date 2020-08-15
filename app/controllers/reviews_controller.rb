@@ -5,10 +5,8 @@ class ReviewsController < ApplicationController
     @review = @beer.reviews.build
   end
 
-  def create 
-    
+  def create  
     @review = current_user.reviews.build(review_params)
-    binding.pry
     if @review.save 
       flash[:message] = "Review Successfully Saved!"
       redirect_to review_path(@review)
