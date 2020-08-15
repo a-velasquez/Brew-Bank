@@ -22,10 +22,18 @@
   </div><br>
   
   <p> Select a Category that already exists: </p>
-    <div>
-      <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: 'Select One'%>
-    </div><br>
+  <div>
+    <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: 'Select One'%>
+  </div><br>
 
+  <p> Or Add A New Category: </p>
+  <div>
+    <%= f.fields_for :category do |cat| %>
+      <%= cat.label :name %>
+      <%= cat.text_field :name %>
+    <% end %>
+  </div>
+  <br>
   <%= f.submit 'Add Beer' %>
 
 <% end %>
