@@ -1,6 +1,4 @@
-<h1>Welcome To Your Brew Bank <%= @user.id %>!</h1>
-
-<%= link_to "Log Out", logout_path, method: :delete %>
+<h1>Welcome To Your Brew Bank <%= @user.username %>!</h1>
 
 <% @user.beers.each do |beer| %>
   <div> 
