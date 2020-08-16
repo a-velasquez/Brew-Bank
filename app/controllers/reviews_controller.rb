@@ -1,8 +1,11 @@
 class ReviewsController < ApplicationController 
 
   def new 
-    @beer = Beer.find_by_id(params[:beer_id])
-    @review = @beer.reviews.build
+    if @beer = Beer.find_by_id(params[:beer_id])
+      @review = @beer.reviews.build
+    else
+      @review = Review.new 
+    end
   end
 
   def create  
@@ -17,7 +20,7 @@ class ReviewsController < ApplicationController
   end 
 
   def show
-    @beer = Beer.find_by_id(params[:beer_id])
+    @review = Review.find_by_id(params[:id])
   end
 
   def index
