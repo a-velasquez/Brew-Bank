@@ -6,5 +6,12 @@
     <p> Brewer: <%= beer.brewer %></p>
     <p> Alcohol: <%= beer.alcohol %>%</p>
     <p> Description: <%= beer.description %></p><br>
+    <p> Your Review: <% beer.reviews.each do |review|  %>
+      <p> <%= link_to review.title, review_path(review.id)%></p>
+      <p> Rating: <%= review.rating %></p>
+      <p> <%= review.content %></p>
+      <br><br>
+    <% end %></p>
   </div>
+
 <% end %>
