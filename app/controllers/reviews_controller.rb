@@ -16,11 +16,16 @@ class ReviewsController < ApplicationController
     end 
   end 
 
-  def show 
-    @review = Review.find_by(params[:id])
+  def show
+    @beer = Beer.find_by_id(params[:beer_id])
   end
 
-  def index 
+  def index
+    if @beer = Beer.find_by_id(params[:beer_id]) #nested route
+      @reviews = @beer.reviews 
+    else  
+      @reviews = Review.all #un-nested route
+    end
   end
 
   private 
