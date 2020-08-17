@@ -1,6 +1,5 @@
 class BeersController < ApplicationController
-  before_action :redirect_if_not_logged_in
-
+  
   def new 
     @beer = Beer.new 
     @beer.build_category
@@ -11,6 +10,7 @@ class BeersController < ApplicationController
     if @beer.save 
       redirect_to beer_path(@beer)
     else
+      @beer.build_category
       render :new 
     end
   end
