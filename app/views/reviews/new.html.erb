@@ -1,6 +1,17 @@
-<h1>Add Your Review</h1>
+<%= render partial: 'layouts/errors', locals: {object: @review}  %>
+
 
 <%= form_for(@review) do |f| %>
+<% if params[:beer_id] %> 
+    <%= f.hidden_field :beer_id %>
+    <h1> Add Your Review for <%= @beer.name %> </h1>
+<% else %>
+    <div>
+      <h1> Add a Review </h1>
+      <%= f.label :beer_id, "Select A Beer To Review"%><br>
+      <%= f.collection_select :beer_id, Beer.all, :id, :name_and_brewer, include_blank: true %>
+    </div>    
+ <% end %><br>
 <div>
   <%= f.label :title %>
   <%= f.text_field :title %>
@@ -18,7 +29,6 @@
   <%= f.text_area :content, size: "25x8" %>
 </div>
 <br>
-<%= f.hidden_field :beer_id %>
 
   <%= f.submit %>
 <% end %>
