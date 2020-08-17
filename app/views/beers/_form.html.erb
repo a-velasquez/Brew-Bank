@@ -27,9 +27,9 @@
 
   <p> Or Add A New Category: </p>
   <div>
-    <%= f.fields_for :category do |cat| %>
-      <%= cat.label :name %>
-      <%= cat.text_field :name %>
+    <%= f.fields_for :category do |category| %>
+      <%= category.label :name %>
+      <%= category.text_field :name %>
     <% end %>
   </div>
   <br>
