@@ -1,0 +1,2 @@
+ <%= link_to "Log Out", logout_path, method: :delete if logged_in? %> |
+ <%= link_to "Add A Beer", new_beer_path if logged_in? %>
