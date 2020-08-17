@@ -1,34 +1,33 @@
 <%= render partial: 'layouts/errors', locals: {object: @review}  %>
 
+<%= display_header(@review)%>
 
 <%= form_for(@review) do |f| %>
 <% if params[:beer_id] %> 
-    <%= f.hidden_field :beer_id %>
-    <h1> Add Your Review for <%= @beer.name %> </h1>
+  <%= f.hidden_field :beer_id %>
 <% else %>
-    <div>
-      <h1> Add a Review </h1>
-      <%= f.label :beer_id, "Select A Beer To Review"%><br>
-      <%= f.collection_select :beer_id, Beer.all, :id, :name_and_brewer, include_blank: true %>
-    </div>    
+  <div>
+    <%= f.label :beer_id, "Select A Beer To Review"%><br>
+    <%= f.collection_select :beer_id, Beer.all, :id, :name_and_brewer, include_blank: true %>
+  </div>    
  <% end %><br>
-<div>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</div>
-<br>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <br>
 
-<div>
-  <%= f.label :rating %>
-  <%= f.number_field :rating, min:0, max:5 %>
-</div>
-<br>
+  <div>
+    <%= f.label :rating %>
+    <%= f.number_field :rating, min:0, max:5 %>
+  </div>
+  <br>
 
-<div>
-  <%= f.label :content %>
-  <%= f.text_area :content, size: "25x8" %>
-</div>
-<br>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content, size: "25x8" %>
+  </div>
+  <br>
 
   <%= f.submit %>
 <% end %>
