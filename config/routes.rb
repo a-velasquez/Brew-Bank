@@ -7,17 +7,12 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   
-  # get '/auth/google_oauth2/callback', to: 'sessions#omniauth'  
-  # more dynamic route 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
   resources :reviews 
-  resources :users, only: [:new, :create, :show]
   resources :beers do
     resources :reviews, only: [:new, :index, :show]
   end
+  resources :users, only: [:show]
   resources :categories
-  
-  
-
 end
