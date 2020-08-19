@@ -1,21 +1,19 @@
 class SessionsController < ApplicationController
-  skip_before_action :redirect_if_not_logged_in
-
+  
   def welcome
   end
 
   def new 
-    @user = User.new 
   end
 
   def create 
     @user = User.find_by(username: params[:user][:username])
-    if @user && @user.authenticate(password: params[:user][:password])
+    if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to user_path(@user.id)
     else
       flash[:error] = "Sorry, login info was incorrect. Please try again."
-      redirect_if_not_logged_in
+      redirect_to login_path
     end
   end
 
