@@ -6,7 +6,7 @@ class BeersController < ApplicationController
   end
 
   def create 
-    @beer = Beer.new(beer_params)
+    @beer = current_user.beers.build(beer_params)
     if @beer.save 
       redirect_to beer_path(@beer)
     else
