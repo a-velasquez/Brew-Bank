@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user.id)
     else
       flash[:error] = "Sorry, login info was incorrect. Please try again."
-      redirect_to login_path
+      redirect_to root_path
     end
   end
 
