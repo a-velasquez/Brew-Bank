@@ -3,6 +3,6 @@
 Title: <%= @review.title %><br>
 You Rated: it <%= @review.rating %> Stars<br>
 Content: <%= @review.content %><br>
-<%= link_to 'Edit This Review', edit_review_path %>
+<%= link_to 'Edit This Review', edit_review_path if authorized?(@review) %>
 
 
