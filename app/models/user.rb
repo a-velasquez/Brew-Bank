@@ -2,7 +2,10 @@ class User < ApplicationRecord
   has_secure_password 
 
   has_many :reviews, dependent: :destroy  
-  has_many :beers, through: :reviews, dependent: :destroy  
+  has_many :reviewed_beers, through: :reviews, source: :beer  
+
+  has_many :beers
+
   validates :username, uniqueness: true 
   validates :email, uniqueness: true 
 
