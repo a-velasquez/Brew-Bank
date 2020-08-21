@@ -8,9 +8,14 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <div> <%= navigation_links %> </div>
-
+  
   <body>
+    <div class="navbar">
+      <%= navigation_links %>
+    </div>
+
+    <div class ="container">
     <%= yield %>
+    </div>
   </body>
 </html>
