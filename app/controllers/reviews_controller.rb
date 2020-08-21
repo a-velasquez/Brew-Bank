@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
     if @beer = Beer.find_by_id(params[:beer_id]) #nested route
       @reviews = @beer.reviews 
     else  
-      @reviews = Review.all #un-nested route
+      @reviews = Review.all.order_by_rating #un-nested route
     end
   end
 
