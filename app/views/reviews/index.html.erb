@@ -5,6 +5,7 @@
  <% end %>
 
 <% @reviews.each do |review| %> 
+  <p> <%= review.beer.name %> </p>
   <p> <%= link_to review.title, review_path(review.id) %> </p>
   <p> Rating: <%= review.rating %></p>
   <p> Posted by <%= review.user.username %> </p><br>
