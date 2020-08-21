@@ -16,7 +16,7 @@ class BeersController < ApplicationController
   end
   
   def index 
-    @beers = Beer.all 
+    @beers = Beer.all.order_by_name 
   end
   
   def show

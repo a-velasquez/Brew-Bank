@@ -8,6 +8,9 @@ class Beer < ApplicationRecord
   validates :name, :brewer, :alcohol, :description, presence: true
   validates :name, uniqueness: { message: "has already been added." } 
 
+  scope :order_by_name, -> {Beer.order("name ASC")}
+  
+
   def category_attributes=(attr)     
     if !attr[:name].blank?
       self.category = Category.find_or_create_by(name: attr[:name])
