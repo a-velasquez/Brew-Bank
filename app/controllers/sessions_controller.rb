@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
-  before_action :redirect_if_logged_in, only: [:welcome, :new]
   
-  def welcome
+  def welcome 
   end
 
   def new 
