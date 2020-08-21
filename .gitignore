@@ -18,6 +18,9 @@
 !/log/.keep
 !/tmp/.keep
 
+#Ignore Notes
+*notes.md
+
 # Ignore .env used for storing keys and app_id's  
 *.env
 
