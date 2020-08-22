@@ -1,12 +1,16 @@
 <% if params[:beer_id] %> 
-    <h1> All Reviews for <%= @beer.name %> </h1>
+    <h2 class="my-3 font-weight-bold"> All Reviews for <%= @beer.name %> </h2>
   <% else %>
-    <h1> All Reviews </h1>
+    <h2 class="my-3 font-weight-bold"> All Reviews </h2>
  <% end %>
-
-<% @reviews.each do |review| %> 
-  <p> <%= review.beer.name %> </p>
-  <p> <%= link_to review.title, review_path(review.id) %> </p>
-  <p> Rating: <%= review.rating %></p>
-  <p> Posted by <%= review.user.username %> </p><br>
+ 
+<% @reviews.each do |review| %>  
+  </ul class="list-group">
+    <li class="list-group-item">
+      <p class="font-weight-bold"><%= review.beer.name %></p>
+      <p><%= link_to review.title, review_path(review.id) %></p>
+      <p>Rating: <%= review.rating %></p>
+      <p>Posted by <%= review.user.username %></p><br>
+    </li>  
+  </ul>
 <% end %>

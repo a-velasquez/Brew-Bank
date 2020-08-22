@@ -10,12 +10,16 @@
   </head>
   
   <body>
-    <div class="navbar">
-      <%= navigation_links %>
-    </div>
-
-    <div class ="container">
-    <%= yield %>
+    <ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <a class="nav-link">
+          <%= navigation_links %>
+        </a>
+      </li>
+    </ul>
+    
+    <div class="container">
+      <%= yield %>
     </div>
   </body>
 </html>

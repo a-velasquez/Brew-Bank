@@ -1,8 +1,10 @@
-<h1> <%= @review.user.username %>'s review for <%= @review.beer.brewer %>'s <%= @review.beer.name %> </h1><br>
+<br><h2 class="my-3 font-weight-bold"><%= @review.user.username %>'s review for <%= @review.beer.brewer %>'s <%= @review.beer.name %></h2>
 
-Title: <%= @review.title %><br>
-You Rated: it <%= @review.rating %> Stars<br>
-Content: <%= @review.content %><br>
-<%= link_to 'Edit This Review', edit_review_path if authorized?(@review) %>
+<div class="container"><br>
+  <p class="font-weight-bold"> <%= @review.title %> </p>
+  <p> Rating: <%= @review.rating %> Stars </p>
+  <p> Content: <%= @review.content %> </p>
+  <%= link_to 'Edit This Review', edit_review_path if authorized?(@review) %>
+</div>
 
 

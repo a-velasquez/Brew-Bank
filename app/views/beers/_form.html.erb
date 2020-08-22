@@ -1,23 +1,22 @@
 <%= render partial: 'layouts/errors', locals: {object: @beer}  %>
 <%= form_for(@beer) do |f| %>
-  <div>
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control-sm" %>
   </div><br>
 
-  <div>
+  <div class="form-group">
     <%= f.label :brewer %>
-    <%= f.text_field :brewer %>
+    <%= f.text_field :brewer, class: "form-control-sm" %>
   </div><br>
   
-  <div>
-    <%= f.label :alcohol %>
-    <%= f.number_field :alcohol, step: :any %>
+  <div class="form-group">
+    Alcohol % <%= f.number_field :alcohol, placeholder: "e.g., 4.9", step: :any, class: "form-control-sm" %>
   </div><br>
   
-  <div>
+  <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_field :description, size: "25x10" %>
+    <%= f.text_field :description, size: "25x10", class: "form-control-sm" %>
   </div><br>
   
   <p> Select a Category that already exists: </p>
@@ -26,13 +25,14 @@
   </div><br>
 
   <p> Or Add A New Category: </p>
-  <div>
+  <div class="form-group">
     <%= f.fields_for :category do |category| %>
       <%= category.label :name %>
-      <%= category.text_field :name %>
+      <%= category.text_field :name, class: "form-control-sm" %>
     <% end %>
   </div>
   <br>
-  <%= f.submit 'Add Beer' %>
+
+  <%= f.submit 'Save Beer', class: "btn btn-primary" %>
 
 <% end %>

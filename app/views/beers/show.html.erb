@@ -1,9 +1,9 @@
-<h1> <%= @beer.name %></h1>
+<h1 class="my-3 font-weight-bold"> <%= @beer.name %> </h1>
 Category: <%= @beer.category.name %><br>
 Alcohol: <%= @beer.alcohol %>%<br>
 <%= @beer.description %><br>
 
-<h2>Reviews for: <%= @beer.name %></h2>
+<h2 class="my-3 font-weight-bold">Reviews for: <%= @beer.name %></h2>
 <% @beer.reviews.each do |review| %>
   <div>
     <p><%= link_to review.title, review_path(review.id) %></p>

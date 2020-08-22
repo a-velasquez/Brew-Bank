@@ -2,28 +2,25 @@
 <% if params[:beer_id] %> 
   <%= f.hidden_field :beer_id %>
 <% else %>
-  <div>
-    <%= f.label :beer_id, "Select A Beer"%><br>
-    <%= f.collection_select :beer_id, Beer.all, :id, :name_and_brewer, include_blank: true %>
-  </div>    
+  <div class="form-group row col-10"> 
+    <%= f.collection_select(:beer_id, Beer.all, :id, :name_and_brewer,
+    { prompt: "Select A Beer to Review"}, { size: 10, class: "custom-select" }) %>
+  </div>
  <% end %><br>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <br>
 
-  <div>
-    <%= f.label :rating %>
-    <%= f.number_field :rating, min:0, max:5 %>
-  </div>
-  <br>
+  <div class="form-group">
+    <%= f.text_field :title, placeholder: "Add A Title...", class: "form-control-sm" %>
+  </div><br>
 
-  <div>
-    <%= f.label :content %>
-    <%= f.text_area :content, size: "25x8" %>
-  </div>
-  <br>
+  <div class="form-group">
+    <p>Rating: (1 - 5)</p>
+    <%= f.number_field :rating, min:0, max:5, class: "form-control-sm" %>
+  </div><br>
 
-  <%= f.submit %>
+  <div class="form-group row col-10">
+    <%= f.text_area :content, placeholder: "Write Your Review Here...", class: "form-control" %>
+  </div><br>
+
+  <%= f.submit 'Save Review', class: "btn btn-success btn-sm" %>
+
 <% end %>
