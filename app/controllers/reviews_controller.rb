@@ -10,11 +10,9 @@ class ReviewsController < ApplicationController
 
   def create  
     @review = current_user.reviews.build(review_params)
-    if @review.save 
-      flash[:message] = "Review Successfully Saved!"
+    if @review.save
       redirect_to review_path(@review)
     else 
-      flash[:error] = "Review Was Not Saved. Please Try Again."
       render :new 
     end 
   end 
