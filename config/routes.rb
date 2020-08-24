@@ -14,8 +14,11 @@ Rails.application.routes.draw do
   resources :beers do
     resources :reviews, only: [:new, :index, :show]
   end
-  resources :users, only: [:show] do 
+  resources :users do 
     resources :beers 
   end
-  resources :categories
+  resources :categories do 
+    resources :beers, only: [:index]
+  end
+
 end
