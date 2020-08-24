@@ -15,8 +15,14 @@ class BeersController < ApplicationController
     end
   end
   
-  def index 
-    @beers = Beer.all.order_by_name 
+  def index
+    if @category = Category.find_by_id(params[:category_id]) #nested route
+      @beers = @category.beers
+    elsif @user = User.find_by_id(params[:user_id])
+      @beers = @user.beers 
+    else
+      @beers = Beer.all.order_by_name
+    end 
   end
   
   def show
