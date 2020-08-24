@@ -3,7 +3,7 @@
 <% @beers.each do |beer| %>
 <ul class="list-group">
   <li class="list-group-item">
-    <p class="font-weight-bold"> <%= link_to beer.name, beer_reviews_path(beer.id) %> <p> <%# beers/:beer_id/reviews  %> 
+    <p class="font-weight-bold"> <%= link_to beer.name, beer_path(beer.id) %> <p> <%# beers/:beer_id/reviews  %> 
     <p> By <%= beer.brewer %> </p>
   </li>
 </ul>
