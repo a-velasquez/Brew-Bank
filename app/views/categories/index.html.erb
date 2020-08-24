@@ -1,7 +1,11 @@
-<br><h2 class="my-3 font-weight-bold">All Categories</h2>
+<h2 class="my-3 font-weight-bold">All Categories</h2>
 
 <% @categories.each do |category| %>
-<div>
-  <p><%= link_to category.name, category_path(category) %></p>
-</div>
+  <div class="card">
+    <div class="card-body">
+      <p><%= link_to category.name, category_beers_path(category) %></p>
+      <p> Number of beers </p>
+      <span class="badge badge-pill badge-primary"><%= category.beers.count %></span>
+    </div>
+  </div>
 <% end %>

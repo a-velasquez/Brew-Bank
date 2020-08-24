@@ -6,7 +6,7 @@ Alcohol: <%= @beer.alcohol %>%<br>
 <h2 class="my-3 font-weight-bold">Reviews for: <%= @beer.name %></h2>
 <% @beer.reviews.each do |review| %>
   <div>
-    <p><%= link_to review.title, review_path(review.id) %></p>
+    <p class="font-weight-bold"> <%= link_to review.title, review_path(review.id) %></p>
     <p> Rating: <%= review.rating %></p>
     <p> <%= review.content %></p><br>
     <% end %>

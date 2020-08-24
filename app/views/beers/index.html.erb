@@ -1,5 +1,10 @@
-<h2 class="my-3 font-weight-bold">All Beers</h2>
+<h2 class="my-3 font-weight-bold"><%= beer_index_header(@category)%></h2>
 
 <% @beers.each do |beer| %>
-<p><%= link_to beer.name, beer_reviews_path(beer.id) %><p> <%# beers/:beer_id/reviews  %> 
+<ul class="list-group">
+  <li class="list-group-item">
+    <p class="font-weight-bold"> <%= link_to beer.name, beer_reviews_path(beer.id) %> <p> <%# beers/:beer_id/reviews  %> 
+    <p> By <%= beer.brewer %> </p>
+  </li>
+</ul>
 <% end %>

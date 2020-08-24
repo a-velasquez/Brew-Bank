@@ -5,12 +5,12 @@
  <% end %>
  
 <% @reviews.each do |review| %>  
-  </ul class="list-group">
+  <ul class="list-group">
     <li class="list-group-item">
       <p class="font-weight-bold"><%= review.beer.name %></p>
-      <p><%= link_to review.title, review_path(review.id) %></p>
-      <p>Rating: <%= review.rating %></p>
-      <p>Posted by <%= review.user.username %></p><br>
+      <p> <%= link_to review.title, review_path(review.id) %></p>
+      <p> Rating: <%= review.rating %></p>
+      <p> Reviewed by <%= review.user.username %></p><br>
     </li>  
   </ul>
 <% end %>

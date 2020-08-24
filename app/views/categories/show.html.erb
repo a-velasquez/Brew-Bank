@@ -1,0 +1,10 @@
+<h2 class="my-3 font-weight-bold"><%= @category.name %> Beers</h2><br>
+
+<% @category.beers.each do |beer| %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <p class="font-weight-bold"> <%= link_to beer.name, beer_reviews_path(beer.id) %> <p>
+    <p> By <%= beer.brewer %> </p>
+  </li>
+</ul>
+<% end %>

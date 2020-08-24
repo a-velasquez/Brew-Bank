@@ -1,6 +1,22 @@
- <%= link_to "Log Out", logout_path, method: :delete %>
- <%= link_to "Add A Beer", new_beer_path %>  
- <%= link_to "All Beers", beers_path %>  
- <%= link_to "All Reviews", reviews_path %>  
- <%= link_to "Home", user_path(current_user) %>  
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= link_to "Add A Beer", new_beer_path %></th>
+      <th><%= link_to "All Beers", beers_path %></th>
+      <th><%= link_to "All Reviews", reviews_path %></th>
+      <th><%= link_to "All Categories", categories_path %></th>
+      <th><%= link_to "Home", user_path(current_user) %></th>
+      <th><%= link_to 'Log Out', logout_path, method: :delete %></th>
+    </tr>
+  </thead>
+</table>
+  
+  
+  
+    
+    
+   
+ 
+  
+
  
