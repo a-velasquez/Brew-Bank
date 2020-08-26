@@ -1,15 +1,21 @@
-<h1 class="my-3 font-weight-bold"> <%= @beer.name %> </h1>
-Category: <%= @beer.category.name %><br>
-Alcohol: <%= @beer.alcohol %>%<br>
-<%= @beer.description %><br>
-
-<h2 class="my-3 font-weight-bold">Reviews for: <%= @beer.name %></h2>
-<% @beer.reviews.each do |review| %>
-  <div>
-    <p class="font-weight-bold"> <%= link_to review.title, review_path(review.id) %></p>
-    <p> Rating: <%= review.rating %></p>
-    <p> <%= review.content %></p><br>
-    <% end %>
+<div class="card">
+  <div class="card-body">
+    <h1 class="my-3 font-weight-bold card-title"> <%= @beer.name %> </h1>
+    <p> Category: <%= @beer.category.name %> </p>
+    <p> Alcohol: <%= @beer.alcohol %> </p>
+    <p> <%= @beer.description %> </p>
+    <%= button_to "Review This Beer", new_beer_review_path(@beer.id), class: "btn btn-primary", method: :get %>
   </div>
+</div>
 
-<%= link_to "Review This Beer", new_beer_review_path(@beer.id) %>
+<h2 class="my-3 font-weight-bold p-3">Reviews for: <%= @beer.name %></h2>
+<% @beer.reviews.each do |review| %>
+  <div class="card">
+    <div class="card-body">
+      <p class="font-weight-bold card-title"> <%= link_to review.title, review_path(review.id) %></p>
+      <p> Rating: <%= review.rating %></p>
+      <p> <%= review.content %></p>
+      <p> by <%= review.user.username %></p><br>
+    </div>  
+  </div>
+<% end %>

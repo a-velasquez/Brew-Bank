@@ -1,5 +1,5 @@
 <%= render partial: 'layouts/errors', locals: {object: @review}  %>
 
-<%= display_header(@review)%>
+<h2 class="my-3 font-weight-bold"> <%= reviews_index_header(@review) %> </h2>
 
-<%= render partial: 'form'%>
+<%= render partial: 'form' %>
