@@ -1,12 +1,13 @@
-<h2 class="my-3 font-weight-bold">Welcome To Your Brew Bank <%= @user.username %>!</h2>
+<h2 class="my-3 font-weight-bold"> Welcome To Your Brew Bank <%= @user.username %>!</h2>
 
-  <% @user.reviews.each do |r| %>
+  <% @reviews.each do |r| %>
     <ul class="list-group">
       <li class="list-group-item"><br>
         <p class="font-weight-bold"> <%= r.beer.name %> </p>
         <p> <%= link_to r.title, review_path(r.id) %> </p>
         <p> Rating: <%= r.rating %> </p>
-        <%= r.content %> <br><br>
+        <p> <%= r.content %> </p>
+        <p> Added <%= r.posted %> </p><br>
       </li>
     </ul>
   <% end %>
