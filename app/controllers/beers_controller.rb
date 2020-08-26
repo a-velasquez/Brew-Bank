@@ -21,7 +21,7 @@ class BeersController < ApplicationController
     elsif @user = User.find_by_id(params[:user_id])
       @beers = @user.beers 
     else
-      @beers = Beer.all.order_by_name
+      @beers = Beer.all.alphabetical
     end 
   end
   
