@@ -1,10 +1,10 @@
 module ReviewsHelper
 
-  def display_header(review)
+  def reviews_index_header(review)
     if params[:beer_id]
-        content_tag(:h1, "Add a Review for #{review.beer.name}")
+        content_tag(:div, "Add a Review for #{review.beer.name}")
     else
-      content_tag(:h1, "Add a Review")
+      content_tag(:div, "Add a Review")
     end
   end
 end
