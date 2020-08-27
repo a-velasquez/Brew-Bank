@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @reviews = @user.reviews.recent 
+    @reviews = @user.reviews
   end
 
   private 
