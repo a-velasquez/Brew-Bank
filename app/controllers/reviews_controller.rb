@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update] 
+  before_action :set_review, only: [:show, :edit, :update]
+  before_action :review_author, only: [:edit, :update] 
 
   def new 
     if @beer = Beer.find_by_id(params[:beer_id])
@@ -48,5 +49,12 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find_by_id(params[:id])
+  end
+
+  def review_author
+    if @review.user != current_user
+      flash[:error] = "You Can Only Edit Your Own Reviews!"
+      redirect_to reviews_path 
+    end
   end
 end
