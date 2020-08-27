@@ -7,7 +7,7 @@
     <h4 class="font-weight-bold card-title"> <%= @review.title %> </h4><br>
     <p> Rating: <%= @review.rating %> Stars </p>
     <p> <%= @review.content %> </p>
-    <%= button_to 'Edit This Review', edit_review_path, method: :get, class: "btn btn-primary" if authorized?(@review) %>
+    <%= button_to 'Edit This Review', edit_review_path, method: :get, class: "btn btn-primary" %>
   </div>
 </div>
 
