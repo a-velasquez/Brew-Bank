@@ -1,4 +1,5 @@
-class ReviewsController < ApplicationController 
+class ReviewsController < ApplicationController
+  before_action :set_review, only: [:show, :edit, :update] 
 
   def new 
     if @beer = Beer.find_by_id(params[:beer_id])
@@ -18,7 +19,6 @@ class ReviewsController < ApplicationController
   end 
 
   def show
-    @review = Review.find_by_id(params[:id])
   end
 
   def index
@@ -30,11 +30,9 @@ class ReviewsController < ApplicationController
   end
 
   def edit 
-    @review = Review.find_by_id(params[:id])
   end
 
   def update 
-    @review = Review.find_by_id(params[:id])
     if @review.update (review_params)
       redirect_to review_path(@review)
     else
@@ -46,5 +44,9 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:title, :rating, :content, :beer_id)
+  end
+
+  def set_review
+    @review = Review.find_by_id(params[:id])
   end
 end
