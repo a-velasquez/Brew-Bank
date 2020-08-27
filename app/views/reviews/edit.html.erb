@@ -1,3 +1,5 @@
 <%= render partial: 'layouts/errors', locals: {object: @review}  %>
 
-<%= render partial: 'form'%>
+<%= render partial: 'form'%><br>
+
+<%= button_to 'Delete Review', review_path(@review), method: :delete, class: "btn btn-primary" %>
