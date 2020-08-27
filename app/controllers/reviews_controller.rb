@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update]
-  before_action :review_author, only: [:edit, :update] 
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :review_author, only: [:edit, :update, :destroy] 
 
   def new 
     if @beer = Beer.find_by_id(params[:beer_id])
@@ -39,6 +39,11 @@ class ReviewsController < ApplicationController
     else
       render :edit 
     end 
+  end
+
+  def destroy
+    @review.destroy
+    redirect_to reviews_path
   end
 
   private 
