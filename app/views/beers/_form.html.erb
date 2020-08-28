@@ -17,13 +17,13 @@
   
   <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_field :description, size: "25x10", class: "form-control-sm" %>
+    <%= f.text_field :description, class: "form-control-lg" %>
   </div><br>
 
   <div class="form-group">
-      <%= f.label "Category"%>
-      <%= f.collection_select(:category_id, Category.all, :id, :name, {prompt: "Select A Beer Category"}, {class: "dropdown-item"})  %>
-  </div>
+      <%= f.label "Category" %><br>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {prompt: "Select A Category"}, {class: "dropdown-item col-2"})  %>
+  </div><br>
  
   <p> Or Add A New Category: </p>
   <div class="form-group">
