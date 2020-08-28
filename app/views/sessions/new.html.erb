@@ -1,21 +1,53 @@
-<% if flash[:error] %>
-<%= flash[:error] %>
-<% end %>
+<p class="display-3 text-center"> Welcome To Brew Bank! </p><br>
+<p class="lead text-center"> Store and Review Your Favorite Beers </p>
 
-<h3 class="my-3 font-weight-bold">Log In</h3>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign In</h5>
+            <div class="form-group">
+              <%= form_for @user, url: login_path, method: :post do |f| %>
 
-<%= form_for (:user) do |f| %>
+              <div class="form-label-group">
+                <%= f.label :username %>
+                <%= f.text_field :username, class: "form-control" %>
+              </div><br>
 
-<div class="form-group">
-  <%= f.label :username %>
-  <%= f.text_field :username, class: "form-control-sm" %>
-  <br><br>
-  <%= f.label :password %>
-  <%= f.password_field :password, class: "form-control-sm" %>
-  <br><br>
-  <%= f.submit "Log In" %>
+              <div class="form-label-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: "form-control" %>
+              </div><br>
+
+              <%= f.submit "Log In", class: "btn btn-lg btn-primary btn-block text-uppercase" %>
+
+              <% end %>
+            </div>
+
+            <p class="text-center"> Or </p>
+
+            <button class="btn btn-outline-secondary btn-block">
+              <i><%= link_to "Log in with Google!", "/auth/google_oauth2", :method=>:post %></i>
+            </button><br>
+
+            <button class="btn btn-outline-secondary btn-block">
+              <i><%= link_to "Log in with Facebook!", "/auth/facebook", :method=>:post %></i>
+            </button><br>
+
+            <button class="btn btn-outline-secondary btn-block">
+              <i><%= link_to "Log in with Github!", "/auth/github", :method=>:post %></i>
+            </button><br>
+
+            <div class="card-footer">
+				      <div class="d-flex justify-content-center links">
+					      <p> Don't have an account? <a href="/signup"> Sign Up </a><p>
+				      </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
-  
-<% end %>
-
 
