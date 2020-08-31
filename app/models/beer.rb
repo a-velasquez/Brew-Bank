@@ -6,7 +6,7 @@ class Beer < ApplicationRecord
   has_many :users, through: :reviews, dependent: :destroy  
 
   validates :name, :brewer, :alcohol, :description, presence: true
-  validates :name, uniqueness: { message: "has already been added." } 
+  validates :name, uniqueness: { message: "has already been added.", case_sensitive: false } 
 
   scope :alphabetical, -> { order('name ASC') }
   
