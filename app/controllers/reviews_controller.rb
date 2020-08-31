@@ -48,18 +48,18 @@ class ReviewsController < ApplicationController
 
   private 
 
-  def review_params
-    params.require(:review).permit(:title, :rating, :content, :beer_id)
-  end
-
-  def set_review
-    @review = Review.find_by_id(params[:id])
-  end
-
-  def review_author
-    if @review.user != current_user
-      flash[:error] = "You Can Only Edit Your Own Reviews!"
-      redirect_to reviews_path 
+    def review_params
+      params.require(:review).permit(:title, :rating, :content, :beer_id)
     end
-  end
+
+    def set_review
+      @review = Review.find_by_id(params[:id])  
+    end
+
+    def review_author
+      if @review.user != current_user
+        flash[:error] = "You Can Only Edit Your Own Reviews!"
+        redirect_to reviews_path 
+      end
+    end
 end
