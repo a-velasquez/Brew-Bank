@@ -1,11 +1,11 @@
 <%= form_for(@review) do |f| %>
-<% if params[:beer_id] %> 
-  <%= f.hidden_field :beer_id %>
-<% else %>
-  <div class="form-group row col-10"> 
-    <%= f.collection_select(:beer_id, Beer.all, :id, :name_and_brewer,
-    { prompt: "Select A Beer to Review"}, { size: 10, class: "custom-select" }) %>
-  </div>
+  <% if params[:beer_id] %> 
+    <%= f.hidden_field :beer_id %>
+  <% else %>
+    <div class="form-group row col-10"> 
+     <%= f.collection_select(:beer_id, Beer.all, :id, :name_and_brewer,
+      { prompt: "Select A Beer to Review"}, { size: 10, class: "custom-select" }) %>
+    </div>
  <% end %><br>
 
   <div class="form-group">
