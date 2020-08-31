@@ -1,8 +1,4 @@
-<% if params[:beer_id] %> 
-    <h2 class="my-3 font-weight-bold"> All Reviews for <%= @beer.name %> </h2>
-  <% else %>
-    <h2 class="my-3 font-weight-bold"> All Reviews </h2>
- <% end %>
+<h2 class="my-3 font-weight-bold"> <%= review_index_header(@beer) %> </h2>
 
 <% if flash[:error] %>
   <div class="bg-warning text-white"> 
