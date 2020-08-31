@@ -1,4 +1,7 @@
-<%= render partial: 'layouts/errors', locals: {object: @beer}  %>
+<div class="bg-warning text-white"> 
+  <%= render partial: 'layouts/errors', locals: {object: @beer}, class: "my-3 font-weight-bold text-center"  %>
+</div>
+
 <%= form_for(@beer) do |f| %>
   <div class="form-group">
     <%= f.label :name %><br>
