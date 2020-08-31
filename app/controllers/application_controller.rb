@@ -13,14 +13,6 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
   end
 
-  def redirect_if_logged_in 
-    if logged_in? 
-      redirect_to user_path(current_user)
-    else
-      render :welcome
-    end
-  end
-
   def redirect_if_not_logged_in 
     redirect_to root_path if !logged_in?
   end
