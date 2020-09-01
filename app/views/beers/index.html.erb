@@ -1,10 +1,13 @@
 <h2 class="my-3 font-weight-bold"><%= beer_index_header(@category)%></h2>
 
-<% @beers.each do |beer| %>
+
 <ul class="list-group">
-  <li class="list-group-item">
-    <p class="font-weight-bold"> <%= link_to beer.name, beer_path(beer.id) %> <p> <%# beers/:beer_id/reviews  %> 
-    <p> By <%= beer.brewer %> </p>
-  </li>
+  <% @beers.each do |beer| %>
+    <li class="list-group-item"><br>
+      <p class="font-weight-bold"> <%= link_to beer.name, beer_path(beer.id) %> <p> <%# beers/:beer_id/reviews  %> 
+      <p> <%= link_to beer.category.name, category_beers_path(beer) %> </p>
+      <p> By <%= beer.brewer %> </p>
+      <p> <%= beer.alcohol %>% Alcohol by volume </p> 
+    </li>
+  <% end %>
 </ul>
-<% end %>
