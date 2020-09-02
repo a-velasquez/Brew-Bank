@@ -17,7 +17,8 @@ class ApplicationController < ActionController::Base
     params[:user_id] ? @user = User.find(params[:user_id]) : @user = User.find(params[:id])
   end
 
-  def redirect_if_not_logged_in 
+  def redirect_if_not_logged_in
+    flash[:error] = "You Must Be Logged In!" 
     redirect_to root_path if !logged_in?
   end
 
