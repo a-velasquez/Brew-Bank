@@ -1,6 +1,12 @@
 <p class="display-3 text-center"> Welcome To Brew Bank! </p><br>
 <p class="lead text-center"> Store and Review Your Favorite Beers </p>
 
+<% if flash[:error] %>
+  <div class="bg-warning text-white"> 
+    <p class="my-3 font-weight-bold text-center"> <%= flash[:error] %> </p>
+  </div>
+<% end %><br>
+
 <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
