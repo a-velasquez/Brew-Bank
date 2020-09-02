@@ -1,4 +1,5 @@
 class BeersController < ApplicationController
+  before_action :redirect_if_not_logged_in, only: [:new, :create]
   
   def new 
     @beer = Beer.new 
