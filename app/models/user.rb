@@ -6,8 +6,10 @@ class User < ApplicationRecord
 
   has_many :beers, dependent: :destroy
 
-  validates :username, uniqueness: true 
-  validates :email, uniqueness: true 
+  validates :username, uniqueness: true
+  validates :username, presence: true, allow_nil: true 
+  validates :email, uniqueness: true
+  validates :email, presence: true, allow_nil: true 
 
   # method to login user using omniauth
   def self.create_from_omniauth(auth)
