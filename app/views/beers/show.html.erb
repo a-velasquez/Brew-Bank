@@ -4,7 +4,8 @@
     <p> Category: <%= @beer.category.name %> </p>
     <p> Alcohol: <%= @beer.alcohol %> </p>
     <p> <%= @beer.description %> </p>
-    <%= button_to "Review This Beer", new_beer_review_path(@beer.id), class: "btn btn-primary", method: :get %>
+    <%= button_to "Review This Beer", new_beer_review_path(@beer.id), class: "btn btn-primary", method: :get %><br>
+    <%= button_to "All #{@beer.name} Reviews", beer_reviews_path(@beer), class: "btn btn-primary", method: :get %>
   </div>
 </div>
 
