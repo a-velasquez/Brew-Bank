@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy  
   has_many :reviewed_beers, through: :reviews, source: :beer  
 
-  has_many :beers
+  has_many :beers, dependent: :destroy
 
   validates :username, uniqueness: true 
   validates :email, uniqueness: true 
