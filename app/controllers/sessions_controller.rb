@@ -1,7 +1,11 @@
 class SessionsController < ApplicationController
   
   def new
-    @user = User.new  
+    if logged_in?
+      redirect_to user_path(current_user)
+    else  
+      @user = User.new
+    end  
   end
 
   def create 
@@ -15,7 +19,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def omniauth  #currently creates from google and facebook
+  def omniauth
     user = User.create_from_omniauth(auth)
     if user.valid?
       session[:user_id] = user.id
