@@ -1,6 +1,8 @@
 class BeersController < ApplicationController
   before_action :redirect_if_not_logged_in, except: [:index, :show]
-  
+  before_action :set_beer, only: [:show, :edit, :update]
+  before_action :beer_author, only: [:edit, :update]
+
   def new 
     @beer = Beer.new 
     @beer.build_category
@@ -27,7 +29,17 @@ class BeersController < ApplicationController
   end
   
   def show
-    @beer = Beer.find_by_id(params[:id]) 
+  end
+
+  def edit 
+  end
+  
+  def update 
+    if @beer.update(beer_params)
+      redirect_to beer_path(@beer)
+    else
+      render :edit 
+    end
   end
 
   private 
@@ -36,4 +48,14 @@ class BeersController < ApplicationController
       params.require(:beer).permit(:name, :brewer, :alcohol, :description, :category_id, category_attributes: [:name])
     end
 
+    def set_beer
+      @beer = Beer.find_by_id(params[:id])
+    end
+
+    def beer_author
+      if @beer.user != current_user
+        flash[:error] = "You Can Only Edit Your Own Beers!"
+        redirect_to beers_path 
+      end
+    end
 end
