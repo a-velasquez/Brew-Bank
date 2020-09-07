@@ -18,9 +18,15 @@
         </a>
       </li>
     </ul>
-
     
     <div class="container">
+
+      <% if flash[:error] %>
+      <div class="bg-warning text-white"> 
+        <p class="my-3 font-weight-bold text-center"> <%= flash[:error] %> </p>
+      </div>
+      <% end %><br>
+
       <%= yield %>
     </div>
   </body>
