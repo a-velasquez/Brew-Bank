@@ -1,11 +1,14 @@
 class BeersController < ApplicationController
-  before_action :redirect_if_not_logged_in, except: [:index, :show]
   before_action :set_beer, only: [:show, :edit, :update]
   before_action :beer_author, only: [:edit, :update]
 
-  def new 
-    @beer = Beer.new 
-    @beer.build_category
+  def new
+    if logged_in?
+      @beer = Beer.new 
+      @beer.build_category
+    else
+      redirect_if_not_logged_in
+    end
   end
 
   def create 
@@ -19,7 +22,7 @@ class BeersController < ApplicationController
   end
   
   def index
-    if @category = Category.find_by_id(params[:category_id]) #nested route
+    if @category = Category.find_by_id(params[:category_id]) 
       @beers = @category.beers
     elsif @user = User.find_by_id(params[:user_id])
       @beers = @user.beers 
@@ -44,18 +47,18 @@ class BeersController < ApplicationController
 
   private 
 
-    def beer_params
-      params.require(:beer).permit(:name, :brewer, :alcohol, :description, :category_id, category_attributes: [:name])
-    end
+  def beer_params
+    params.require(:beer).permit(:name, :brewer, :alcohol, :description, :category_id, category_attributes: [:name])
+  end
 
-    def set_beer
-      @beer = Beer.find_by_id(params[:id])
-    end
+  def set_beer
+    @beer = Beer.find_by_id(params[:id])
+  end
 
-    def beer_author
-      if @beer.user != current_user
-        flash[:error] = "You Can Only Edit Your Own Beers!"
-        redirect_to beers_path 
-      end
+  def beer_author
+    if @beer.user != current_user
+      flash[:error] = 'You Can Only Edit Your Own Beers!'
+      redirect_to beers_path 
     end
+  end
 end

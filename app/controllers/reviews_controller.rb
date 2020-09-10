@@ -1,13 +1,17 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :review_author, only: [:edit, :update, :destroy]
-  before_action :redirect_if_not_logged_in, only: [:new]
+  
 
-  def new 
-    if @beer = Beer.find_by_id(params[:beer_id])
-      @review = @beer.reviews.build
+  def new
+    if logged_in? 
+      if @beer = Beer.find_by_id(params[:beer_id])
+        @review = @beer.reviews.build
+      else
+        @review = Review.new 
+      end
     else
-      @review = Review.new 
+      redirect_if_not_logged_in
     end
   end
 
